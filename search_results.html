@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--------------Head------------------->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Shadow Vault - Search Results</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body onload="loadSearchResults()">
+    <header class="main-header">
+        <div class="logo">Shadow Vault</div>
+        <div class="cart-icon">🛒</div>
+    </header>
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search cards and collections" required>
+        <button class="searchButton" onclick="redirectToSearch()">Search</button>
+    </div>
+    <!--Navigation Section-->
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="sidebar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile Dashboard</a></li>
+            <li><a href="cards.html">Cards</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="forums.html">Forums</a></li>
+            <br>
+            <br>
+            <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+        <!--Banner-->
+        <section class="banner">
+            <div class="banner-area">
+                <div class="banner-image-search">
+                    <div class="banner-text">
+                        <h1 style="font-size: 2em">Search Results</h1>
+                        <p>Traced through shadow. Revealed by intent. These are the paths your search has uncovered.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Search Results Display-->
+        <h2>Search Results: "<span id="searchQuery"></span>"</h2>
+        <h2>Cards:</h2>
+        <div class="card-scroll-container">
+            <div class="scroll-wrapper">
+                <section id="cardResults">
+                    <div class="card-row" id="cardList"></div>
+                </section>
+            </div>
+        </div>
+        <h2>Collections:</h2>
+        <div class="card-scroll-container">
+            <div class="scroll-wrapper">
+                <section id="collectionResults">
+                    <div class="collection-row" id="collectionList"></div>
+                </section>
+            </div>
+        </div>
+        </main>
+    </div>
+    <script src="javascript.js"></script>
+    <script src="search.js" type="module"></script> 
+    <script src="initdb.js" type="module"></script>
+</body>
+
+<!--Footer-->
+<footer>
+    <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+</footer>
+
+</html>

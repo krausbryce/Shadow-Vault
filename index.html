@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--------------Head------------------->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Shadow Vault - Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<!-------------Body------------------->
+<body>
+    <header class="main-header">
+        <div class="logo">Shadow Vault</div>
+        <div class="cart-icon">🛒</div>
+    </header>
+    <!--Search Bar-->
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search cards and collections" required>
+        <button class="searchButton" onclick="redirectToSearch()">Search</button>
+    </div>
+    <!--Navigation Section-->
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="sidebar-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile Dashboard</a></li>
+            <li><a href="cards.html">Cards</a></li>
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="trading.html">Trading</a></li>
+            <li><a href="forums.html">Forums</a></li>
+            <br>
+            <br>
+            <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+        <!--Banner-->
+            <section class="banner">
+                <div class="banner-area">
+                    <div class="banner-image-home">
+                        <div class="banner-text">
+                            <h1 style="font-size: 2em">Home</h1>
+                            <p>Enter the vault. Discover legacies. Begin your journey</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <h2>Popular Cards:</h2>
+        <div class="card-scroll-container">
+            <div class="scroll-wrapper">
+                <div id="cardList"></div>
+            </div>
+        </div>
+        <h2>Popular Collections:</h2>
+        <div class="card-scroll-container">
+            <div class="scroll-wrapper">
+                <div id="collectionList"></div>
+            </div>
+        </div>
+        <!-- About Us -->
+        <h2>About Us:</h2>
+        <section class="about-us">
+        <p>
+            Shadow Vault is a vibrant, community-driven platform built for passionate Yu-Gi-Oh! enthusiasts.
+            Whether you're a seasoned duelist, a collector hunting for rare cards, or a newcomer eager to learn, Shadow Vault offers a dynamic space to trade, showcase, and discuss your favorite cards and collections.
+            <span id="dots">...</span>
+            <span id="more">
+            With intuitive tools for managing your inventory, placing offers, and tracking market trends, Shadow Vault empowers users to connect with others, share their strategies, and grow their collections in a trusted, lore-rich environment. Join a growing network of duelists who are shaping the future of Yu-Gi-Oh! trading—one card at a time.
+            </span>
+        </p>
+        <button onclick="readMore()" id="readMoreButton">Read more</button>
+        </section>
+        <h2>Contact Us:</h2>
+        <!-- Contact Form -->
+        <form id="contactForm">
+            <label>Name</label><input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            <label>Email</label><input type="email" id="email" name="email" placeholder="Your Email" required><br>
+            <br>
+            <label>Message</label><textarea id="message" placeholder="Your Message" required rows="5"></textarea><br>
+            <br>
+            <button type="submit">Send</button>
+        </form>
+        <dialog id="dialogContainer">
+        <h2>Notification</h2>
+        <p id="notification"></p>
+        <button onclick="document.getElementById('dialogContainer').close()">CLOSE</button>
+        </dialog>
+        <!--List of Messages-->
+        <h2>Messages:</h2>
+        <div id="messagesContainer"></div>
+        </main>  
+    </div>
+    <script src="javascript.js"></script>
+    <script src="contact.js" type="module"></script>
+    <script src="search.js" type="module"></script> 
+    <script src="initdb.js" type="module"></script>
+</body>
+<!--Footer-->
+<footer>
+    <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+</footer>
+</html>

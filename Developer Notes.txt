@@ -1,0 +1,11 @@
+Project URL - https://txxrdepiwhnmzbzbjkno.supabase.co
+API Key - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4eHJkZXBpd2hubXpiemJqa25vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjAyOTQyNTAsImV4cCI6MjA3NTg3MDI1MH0.0OfluptcByKWC6vibVIsS835QGEH-994pzsmfty2BBg
+
+To Do:
+    -Add text to speech
+    -Finish layout for Card Detail
+    -Finish layout for Collection Detail
+    -Add funcitonality 'Add New Card'
+    -Add funcitonality 'Add New Collection'
+    -Add 'Add to Cart' funcitonality
+    -Sticky Navbar (scroll with page)
