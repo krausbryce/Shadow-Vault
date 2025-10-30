@@ -1,4 +1,4 @@
-import { supabase } from './initdb.js';
+import { supabase } from 'initdb.js';
 
 // Escape HTML to prevent injection
 function escapeHTML(str) {
@@ -99,4 +99,5 @@ for (const card of cards) {
 }
 // Initial load
 document.addEventListener("DOMContentLoaded", loadCollectionDetails);
+
 document.addEventListener("DOMContentLoaded", displayCards);
