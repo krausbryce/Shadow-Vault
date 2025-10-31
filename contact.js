@@ -1,4 +1,4 @@
-import { supabase } from 'initdb.js';
+import { supabase } from '../initdb.js';
 
 // Avoid errors
 function escapeHTML(str) {
@@ -87,4 +87,5 @@ document.getElementById('contactForm').addEventListener('submit', async function
   document.getElementById('dialogContainer').showModal();
   document.getElementById('contactForm').reset();
   displayMessages();
+
 });
