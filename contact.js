@@ -1,5 +1,4 @@
-// Import Supabase library and setup connection to database
-import { supabase } from './initdb.js';
+import { supabase } from 'initdb.js';
 
 // Avoid errors
 function escapeHTML(str) {
