@@ -61,5 +61,4 @@ speakButton.addEventListener('click', () => {
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
         window.speechSynthesis.speak(utterance);
     }
-
 });
