@@ -1,45 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <!--------------Head------------------->
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadow Vault - Home</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <!-------------Body------------------->
 <body>
-    <header class="main-header">
+    <header class="main-header" role="banner">
         <div class="logo">Shadow Vault</div>
         <div class="cart-icon">🛒</div>
     </header>
     <!--Search Bar-->
-    <div class="search-container">
+    <div class="search-container" role="search">
         <input type="text" class="search-bar" id="searchInput" placeholder="Search cards and collections" required>
         <button class="searchButton" onclick="redirectToSearch()">Search</button>
     </div>
     <!--Navigation Section-->
     <div class="container">
-        <nav class="sidebar">
+        <nav class="sidebar" role="navigation">
             <ul class="sidebar-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="profile.html">Profile Dashboard</a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="collections.html">Collections</a></li>
-            <li><a href="trading.html">Trading</a></li>
             <li><a href="forums.html">Forums</a></li>
             <br>
             <br>
             <li><a href="logout.html">Logout</a></li>
             </ul>
         </nav>
-        <main class="main-content">
+        <main class="main-content" role="main">
         <!--Banner-->
-            <section class="banner">
+            <section class="banner" aria-labelledby="bannerTitle">
                 <div class="banner-area">
                     <div class="banner-image-home">
                         <div class="banner-text">
-                            <h1 style="font-size: 2em">Home</h1>
+                            <h1 id="bannerTitle" style="font-size: 2em">Home</h1>
                             <p>Enter the vault. Discover legacies. Begin your journey</p>
                         </div>
                     </div>
@@ -58,8 +58,8 @@
             </div>
         </div>
         <!-- About Us -->
-        <h2>About Us:</h2>
-        <section class="about-us">
+        <section class="about-us" aria-labelledby="aboutTitle">
+        <h2 id="aboutTitle">About Us:</h2>
         <p>
             Shadow Vault is a vibrant, community-driven platform built for passionate Yu-Gi-Oh! enthusiasts.
             Whether you're a seasoned duelist, a collector hunting for rare cards, or a newcomer eager to learn, Shadow Vault offers a dynamic space to trade, showcase, and discuss your favorite cards and collections.
@@ -68,26 +68,29 @@
             With intuitive tools for managing your inventory, placing offers, and tracking market trends, Shadow Vault empowers users to connect with others, share their strategies, and grow their collections in a trusted, lore-rich environment. Join a growing network of duelists who are shaping the future of Yu-Gi-Oh! trading—one card at a time.
             </span>
         </p>
-        <button onclick="readMore()" id="readMoreButton">Read more</button>
+        <button onclick="readMore()" id="readMoreButton" aria-label="Toggle additional information">Read more</button>
         </section>
-        <h2>Contact Us:</h2>
-        <!-- Contact Form -->
-        <form id="contactForm">
-            <label>Name</label><input type="text" id="name" name="name" placeholder="Your Name" required><br>
-            <label>Email</label><input type="email" id="email" name="email" placeholder="Your Email" required><br>
+        <form id="contactForm" aria-labelledby="contactTitle">
+            <h2 id="contactTitle">Contact Us:</h2>
+            <label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your Name" required><br>
+            <label for="email">Email</label><input type="email" id="email" name="email" placeholder="Your Email" required><br>
             <br>
-            <label>Message</label><textarea id="message" placeholder="Your Message" required rows="5"></textarea><br>
+            <label for="message">Message</label><textarea id="message" placeholder="Your Message" required rows="5"></textarea><br>
             <br>
             <button type="submit">Send</button>
         </form>
-        <dialog id="dialogContainer">
-        <h2>Notification</h2>
+        <dialog id="dialogContainer" role="dialog" aria-labelledby="dialogTitle" aria-describedby="notification">
+        <h2 id="dialogTitle">Notification</h2>
         <p id="notification"></p>
-        <button onclick="document.getElementById('dialogContainer').close()">CLOSE</button>
+        <button onclick="document.getElementById('dialogContainer').close()" aria-label="Close notification dialog">CLOSE</button>
         </dialog>
-        <!--List of Messages-->
-        <h2>Messages:</h2>
+        <h2 id="messagesTitle" aria-labelledby="messagesTitle">Messages:</h2>
         <div id="messagesContainer"></div>
+        <div class="textToSpeech">
+            <h2>Text to Speech</h2>
+            <textarea id="textInput" rows="5" cols="50" placeholder="Enter text here..."></textarea>
+            <button id="speakButton">Speak🔈</button>
+        </div>
         </main>  
     </div>
     <script src="javascript.js"></script>
@@ -96,7 +99,9 @@
     <script src="initdb.js" type="module"></script>
 </body>
 <!--Footer-->
-<footer>
+<footer role="contentinfo">
     <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </footer>
 </html>

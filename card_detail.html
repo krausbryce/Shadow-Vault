@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- -------------- Head ------------------- -->
+<!-- Head -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<!-- ------------- Body ------------------- -->
+<!-- Body -->
 <body>
     <header class="main-header">
         <div class="logo">Shadow Vault</div>
@@ -29,7 +29,6 @@
             <li><a href="profile.html">Profile Dashboard</a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="collections.html">Collections</a></li>
-            <li><a href="trading.html">Trading</a></li>
             <li><a href="forums.html">Forums</a></li>
             <br>
             <br>
@@ -47,17 +46,29 @@
                     <div class="seller-details">
                         <h2>Seller Details</h2>
                     </div>
-                    <div class="market-tracker">
-                        <h2>Marker Tracker</h2>
-                        <div class="market-data">  
-                            <p><strong>Current Price:</strong> $</p>
-                            <p><strong>Condition:</strong> Near Mint</p>
-                            <p><strong>Last Updated:</strong> 2 hours ago</p>
-                            <p><em>Live data coming soon...</em></p>
-                        </div>
+                    <div class ="offer-container">
+                        <label for="offer-amount">Your Offer:</label>
+                            <div class="market-price">
+                                <p><strong>Current Price:  </strong></p>
+                                <p id="current-price"></p>
+                            </div>
+                        <input type="number" id="offer-amount"></input>
+                        <button id="submit-offer">Submit Offer</button>
+                        <p id="message"></p>
+                    </div>
+                    <div id="offerDialog" class="dialog">
+                    <div class="dialog-content">
+                        <p>Your offer has been sent successfully!</p>
+                        <button onclick="closeDialog()">OK</button>
+                    </div>
                     </div>
                 </div>
             </section>
+            <div class="textToSpeech">
+                <h2>Text to Speech</h2>
+                <textarea id="textInput" rows="5" cols="50" placeholder="Enter text here..."></textarea>
+                <button id="speakButton">Speak🔈</button>
+           </div>
         </main>
     </div>
 
@@ -66,10 +77,13 @@
     <script src="search.js" type="module"></script>
     <script src="initdb.js" type="module"></script>
     <script src="card_detail.js" type="module"></script>
+    <script src="offer.js" type="module"></script>
 </body>
 
 <!-- Footer -->
 <footer>
     <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </footer>
 </html>

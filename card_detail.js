@@ -60,6 +60,12 @@ async function loadCardDetails() {
     <p><strong>Set:</strong> ${escapeHTML(card.set)}</p>
     <p><strong>Rarity:</strong> ${escapeHTML(card.rarity)}</p>
     <p><strong>Description:</strong> ${escapeHTML(card.description)}</p>
+  
+    <h2>Pricing</h2>
+    <p><strong>Condition:</strong>${escapeHTML(card.condition)}</p>
+    <p><strong>Price:</strong> $${escapeHTML(card.price)}</p>
+    <p><strong>Last Updated:</strong> 2 hours ago</p>
+    <p><em>Live data coming soon...</em></p>
   `;
 
   // Insert seller details
@@ -68,10 +74,8 @@ async function loadCardDetails() {
     <p><strong>Seller:</strong> Buymycards</p>
     <p><strong>Location:</strong> Napier, New Zealand</p>
     <p><strong>Rating:</strong> 8</p>
-    <p><strong>Price:</strong> $${escapeHTML(card.price)}</p>
   `;
 
 }
 
 document.addEventListener("DOMContentLoaded", loadCardDetails);
-

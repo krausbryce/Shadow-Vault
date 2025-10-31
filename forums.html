@@ -1,81 +1,83 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <!--------------Head------------------->
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shadow Vault - Forums</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <!-------------Body------------------->
 <body>
-    <header class="main-header">
+    <header class="main-header" role="banner">
         <div class="logo">Shadow Vault</div>
         <div class="cart-icon">🛒</div>
     </header>
     <!--Search Bar-->
-    <div class="search-container">
+    <div class="search-container" role="search">
         <input type="text" class="search-bar" id="searchInput" placeholder="Search cards and collections" required>
         <button class="searchButton" onclick="redirectToSearch()">Search</button>
     </div>
     <!--Navigation Section-->
     <div class="container">
-        <nav class="sidebar">
+        <nav class="sidebar" role="navigation">
             <ul class="sidebar-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="profile.html">Profile Dashboard</a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="collections.html">Collections</a></li>
-            <li><a href="trading.html">Trading</a></li>
             <li><a href="forums.html">Forums</a></li>
             <br>
             <br>
             <li><a href="logout.html">Logout</a></li>
             </ul>
         </nav>
-        <main class="main-content">
+        <main class="main-content" role="main">
             <!--Banner-->
-            <section class="banner">
+            <section class="banner" aria-labelledby="forumsBannerTitle">
                 <div class="banner-area">
                     <div class="banner-image-forums">
                         <div class="banner-text">
-                            <h1 style="font-size: 2em">Forums</h1>
+                            <h1 id="forumsBannerTitle" style="font-size: 2em">Forums</h1>
                             <p>Discuss strategies, trade insights, and share your collections.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="forum-form-section">
-                <h2>Start a New Discussion</h2>
-                <form id="forumForm">
-                <label for="forumUser">Username</label>
-                <input type="text" id="forumUser" name="forumUser" required />
+            <section class="forum-form-section" aria-labelledby="newDiscussionTitle">
+                <h2 id="newDiscussionTitle">Start a New Discussion</h2>
+                <form id="forumForm" aria-describedby="forumFormDesc">
+                    <p id="forumFormDesc">Fill out the form below to start a new forum post.</p>
+                    <label for="forumUser">Username</label>
+                    <input type="text" id="forumUser" name="forumUser" required>
 
-                <label for="forumContent">Post Content</label>
-                <textarea id="forumContent" name="forumContent" rows="4" required></textarea>
+                    <label for="forumContent">Post Content</label>
+                    <textarea id="forumContent" name="forumContent" rows="4" required></textarea>
 
-                <button type="submit">Submit Post</button>
+                    <button type="submit">Submit Post</button>
                 </form>
             </section>
-
-            <section class="forum-posts" id="forumPostsContainer">
-                <h2>Latest Forum Posts</h2>
+            <section class="forum-posts" id="forumPostsContainer" role="region" aria-labelledby="latestPostsTitle">
+                <h2 id="latestPostsTitle">Latest Forum Posts</h2>
             </section>
-            
-            
-        </main>
+            <div class="textToSpeech">
+                <h2>Text to Speech</h2>
+                <textarea id="textInput" rows="5" cols="50" placeholder="Enter text here..."></textarea>
+                <button id="speakButton">Speak🔈</button>
+            </div>        
+    </main>
     </div>
     <script src="javascript.js"></script>
     <script src="search.js" type="module"></script>
     <script src="initdb.js" type="module"></script>
     <script src="forum.js" type="module"></script>
-
 </body>
 <!--Footer-->
 <footer>
     <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </footer>
 </html>
-
-

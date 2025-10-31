@@ -26,7 +26,6 @@
             <li><a href="profile.html">Profile Dashboard</a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="collections.html">Collections</a></li>
-            <li><a href="trading.html">Trading</a></li>
             <li><a href="forums.html">Forums</a></li>
             <br>
             <br>
@@ -35,14 +34,32 @@
         </nav>
         <!--Main-->
         <main class="main-content">
-            <section class="collection-detail-container">
-                <div class="collection-container"></div>
-                <div class="details">
-                    <div class="collection-details">
-                        <h2>Card Details</h2>
+        <!--Banner-->
+        <section class="banner">
+            <div class="banner-area">
+                <div class="banner-image-collection-detail">
+                    <div class="banner-text">
+                        <h1 style="font-size: 2em">Your Collection</h1>
+                        <p>Your Cards, Your Legacy</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+        <!--Collection Details-->
+        <section class="collection-detail-container">
+            <div class="collection-container"></div>
+            <div class="details">
+                <div class="collection-details"></div>
+            </div>
+        </section>
+        <!--Cards in Collection-->
+        <h2>Cards</h2>
+        <div id="cardPage" class="cards-container"></div>
+        <div class="textToSpeech">
+            <h2>Text to Speech</h2>
+            <textarea id="textInput" rows="5" cols="50" placeholder="Enter text here..."></textarea>
+            <button id="speakButton">Speak🔈</button>
+        </div>
         </main>
     </div>
     <script src="javascript.js"></script>
@@ -54,6 +71,8 @@
 <!--Footer-->
 <footer>
     <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </footer>
 </html>
 

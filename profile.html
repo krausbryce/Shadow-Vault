@@ -26,7 +26,6 @@
             <li><a href="profile.html">Profile Dashboard</a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="collections.html">Collections</a></li>
-            <li><a href="trading.html">Trading</a></li>
             <li><a href="forums.html">Forums</a></li>
             <br>
             <br>
@@ -45,30 +44,102 @@
             </div>
         </section>
         <h2>Your Cards</h2>
-        <button class="add-card-button">+ Add New Card</button>
-        <div class="card-scroll-container">
+
+        <!-- Add New Card Button -->
+        <button id="addCardBtn"">Add New Card</button>
+
+        <!-- Popup Modal -->
+        <div id="cardModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>Add New Card</h3>
+            <form id="cardForm">
+
+            <label for="cardName">Card Name:</label>
+            <input type="text" id="cardName" name="cardName" required>
+
+            <label for="cardType">Card Type:</label>
+            <input type="text" id="cardType" name="cardType" required>
+
+            <label for="cardDescription">Card Description:</label>
+            <input type="text" id="cardDescription" name="cardDescription" required>
+ 
+            <label for="cardSet">Card Set:</label>
+            <input type="text" id="cardSet" name="cardSet" required>
+
+            <label for="cardPrice">Card Price:</label>
+            <input type="text" id="cardPrice" name="cardPrice" required>
+
+
+            <label for="cardRarity">Rarity:</label>
+            <select id="cardRarity">
+            <option value="Common">Common</option>
+            <option value="Rare">Rare</option>
+            <option value="Super Rare">Super Rare</option>
+            <option value="Ultra Rare">Ultra Rare</option>
+            <option value="Secret Rare">Secret Rare</option>
+            </select>
+        
+            <label for="cardCondition">Condition:</label>
+            <select id="cardCondition">
+            <option value="Mint">Mint</option>
+            <option value="Near Mint">Near Mint</option>
+            <option value="Lightly Played">Lightly Played</option>
+            <option value="Moderately Played">Moderately Played</option>
+
+            <label for="cardImage">Upload Image:</label>
+            <input type="file" id="cardImage" name="cardImage" accept="image/*" required>
+            <button type="submit">Upload Card</button>
+            </form>
+            </div>
+            </div>
             <div class="scroll-wrapper">
-                <div id="cardList">
+            <div id="cardList"></div>
+            </div>
+            <h2>Your Collections</h2>
+            <!-- Add Collection Button -->
+            <button id="addCollectionBtn">Add Collection</button>
+            <!-- Collection Modal -->
+            <div id="collectionModal" class="modal">
+                <div class="modal-content">
+                    <h2>Add New Collection</h2>
+                    <form id="collectionForm">
+                    <label for="collectionTitle">Title:</label>
+                    <input type="text" id="collectionTitle" name="collectionTitle" required>
+
+                    <label for="collectionDescription">Description:</label>
+                    <textarea id="collectionDescription" name="collectionDescription" rows="4"></textarea>
+
+                    <label for="collectionImage">Image:</label>
+                    <input type="file" id="collectionImage" name="collectionImage" accept="image/*" required>
+
+                    <button type="submit">Save Collection</button>
+                    </form>
                 </div>
             </div>
-        </div>
-        <h2>Your Collections</h2>
-        <button class="add-card-button">+ Create New Collection</button>
-        <div class="card-scroll-container">
+            <div class="card-scroll-container">
             <div class="scroll-wrapper">
-                <div id="collectionList">
-                </div>
+                <div id="collectionList"></div>
             </div>
-        </div>
-        </main>
+            </div>
+            <div class="textToSpeech">
+                <h2>Text to Speech</h2>
+                <textarea id="textInput" rows="5" cols="50" placeholder="Enter text here..."></textarea>
+                <button id="speakButton">Speak🔈</button>
+            </div>            
+        </div>        
+    </main>
     </div>
     <script src="javascript.js"></script>
-    <script src="contact.js" type="module"></script>
     <script src="search.js" type="module"></script> 
-    <script src="initdb.js" type="module"></script>     
+    <script src="initdb.js" type="module"></script>
+    <script src="add_card.js" type="module"></script>
+    <script src="add_collection.js"></script>     
+     
 </body>
 <!--------------------Footer-------------------------->
 <footer>
     <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </footer>
 </html>

@@ -15,73 +15,69 @@ function escapeHTML(str) {
 }
 
 // Load and display a single collection's details
-async function loadCollectionDetails() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const collectionId = urlParams.get('id');
+async function loadCollectionDetails(collectionId) {
+  const { data: collection, error } = await supabase
+    .from('collections')
+    .select('*')
+    .eq('id', collectionId)
+    .single();
 
-    if (!collectionId) {
-        console.error("No collection ID found in URL.");
-        return;
-    }
+  if (error || !collection) {
+    console.error("Error fetching collection:", error);
+    return;
+  }
 
-    const { data: collection, error} = await supabase
-        .from('collections')
-        .select('*')
-        .eq('id', collectionId)
-        .single();
+  const collectionContainer = document.querySelector('.collection-container');
+  collectionContainer.innerHTML = '';
 
-    if (error || !collection) {
-        console.error("Error fetching collection:", error);
-        return;
-    }
+  if (collection.image_url) {
+    const collectionElement = document.createElement('div');
+    collectionElement.classList.add('collection');
 
-    // Insert collection image into .collection-container
-    const collectionContainer = document.querySelector('.collection-container');
-    collectionContainer.innerHTML = ''; //Clear previous content
+    const img = document.createElement('img');
+    img.src = collection.image_url;
+    img.alt = collection.name;
+    img.classList.add('collection-image');
 
-    if (collection.image_url) {
-        const collectionElement = document.createElement('div');
-        collectionElement.classList.add('collection');
+    collectionElement.appendChild(img);
+    collectionContainer.appendChild(collectionElement);
+  }
 
-        const img = document.createElement('img');
-        img.src = collection.image_url;
-        img.alt = collection.name;
-        img.classList.add('collection-image');
-
-        collectionElement.appendChild(img);
-        collectionContainer.appendChild(collectionElement);
-    }
-
-    // Insert collection details
-    document.querySelector('.collection-details').innerHTML = `
-        <h2>Collection Details</h2>
-        <p><strong>Title:</strong> ${escapeHTML(collection.name)}</p>
-        <p><strong>Description:</strong> ${escapeHTML(collection.description)}</p>
-        `;
+  document.querySelector('.collection-details').innerHTML = `
+    <h2>Collection Details</h2>
+    <p><strong>Title:</strong> ${escapeHTML(collection.name)}</p>
+    <p><strong>Description:</strong> ${escapeHTML(collection.description)}</p>
+    <div id="cards-${collectionId}" class="cards-container"></div>
+  `;
 }
 
 // Fetch Cards for a Collection
 async function getCardsForCollection(collectionId) {
-    const { data, error } = await supabase
-        .from('cards')
-        .select('*')
-        .eq('collectionId', collectionId)
-        .order('title', {ascending: true});
+  const { data, error } = await supabase
+    .from('cards')
+    .select('*')
+    .eq('collectionId', collectionId)
+    .order('title', { ascending: true });
 
-    if (error) {
-        console.error('Error fetching cards:', error);
-        return [];
-    }
-    return data;
+  if (error) {
+    console.error('Error fetching cards:', error);
+    return [];
+  }
+  return data;
 }
 
 // Display cards for a specific collection
 async function displayCards(collectionId) {
-    const cards = await getCardsForCollection(collectionId);
-    const cardsDiv = document.getElementById(`cards-${collectionId}`);
-    cardsDiv.innerHTML = '';
+  const cards = await getCardsForCollection(collectionId);
+  const cardsDiv = document.getElementById('cardPage');  if (!cardsDiv) {
+    console.error(`Element with id cards-${collectionId} not found.`);
+    return;
+  }
 
-for (const card of cards) {
+  cardsDiv.innerHTML = '';
+
+  for (const card of cards) {
+
     const cardEl = document.createElement('div');
     cardEl.className = 'card';
 
@@ -90,14 +86,24 @@ for (const card of cards) {
         <h4>${escapeHTML(card.title || 'Untitled')}</h4>
         <h3>Set: ${escapeHTML(card.set || 'Unknown')}</h3>
         <p><strong>Rarity:</strong> ${escapeHTML(card.rarity || 'Unknown')}</p>
-        ${imageHtml}
-        <p><strong>Price:</strong> $${escapeHTML(card.price || '0.00')}</p>
+        ${card.image_url ? `<img src="${escapeHTML(card.image_url)}" alt="${escapeHTML(card.title || 'Card Image')}" class="card-image">` : ''}
       </div>
     `;
-    cardsDiv.appendChild(cardEl);
-}
-}
-// Initial load
-document.addEventListener("DOMContentLoaded", loadCollectionDetails);
 
-document.addEventListener("DOMContentLoaded", displayCards);
+    cardsDiv.appendChild(cardEl);
+  }
+}
+
+// Initial load
+document.addEventListener("DOMContentLoaded", async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const collectionId = urlParams.get('id');
+
+  if (!collectionId) {
+    console.error("No collection ID found in URL.");
+    return;
+  }
+
+  await loadCollectionDetails(collectionId);
+  await displayCards(collectionId);
+});

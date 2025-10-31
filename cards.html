@@ -26,7 +26,6 @@
             <li><a href="profile.html">Profile Dashboard</a></li>
             <li><a href="cards.html">Cards</a></li>
             <li><a href="collections.html">Collections</a></li>
-            <li><a href="trading.html">Trading</a></li>
             <li><a href="forums.html">Forums</a></li>
             <br>
             <br>
@@ -49,6 +48,11 @@
             <div class="cardPage">
                 <div id="cardList"></div>
             </div>
+            <div class="textToSpeech">
+                <h2>Text to Speech</h2>
+                <textarea id="textInput" rows="5" cols="50" placeholder="Enter text here..."></textarea>
+                <button id="speakButton">Speak🔈</button>
+            </div>
         </main>
     </div>
     <script src="javascript.js"></script>
@@ -59,6 +63,8 @@
 <!--Footer-->
 <footer>
     <p>&copy; 2025 Shadow Vault. All rights reserved.</p>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </footer>
 </html>
 

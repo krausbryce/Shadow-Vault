@@ -88,5 +88,4 @@ document.getElementById('contactForm').addEventListener('submit', async function
   document.getElementById('dialogContainer').showModal();
   document.getElementById('contactForm').reset();
   displayMessages();
-
 });

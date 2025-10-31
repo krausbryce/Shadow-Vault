@@ -42,3 +42,22 @@ function readMore() {
   }
 }
 
+function closeDialog() {
+  document.getElementById('offerDialog').style.display = 'none';
+}
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+
+const textInput = document.getElementById('textInput');
+const speakButton = document.getElementById('speakButton');
+
+speakButton.addEventListener('click', () => {
+    const textToSpeak = textInput.value;
+
+    if (textToSpeak.trim() !== '') {
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        window.speechSynthesis.speak(utterance);
+    }
+});

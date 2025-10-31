@@ -168,5 +168,4 @@ document.addEventListener('submit', async function (e) {
 });
 
 // Initial load
-
 displayForumPosts();
