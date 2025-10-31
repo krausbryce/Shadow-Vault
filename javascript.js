@@ -20,7 +20,7 @@ function openCollectionDetailPage(collectionId) {
 function redirectToSearch() {
   const query = document.getElementById('searchInput').value.trim();
   if (query) {
-    window.location.href = `/search_results.html?q=${encodeURIComponent(query)}`;
+    window.location.href = `/Shadow-Vault/search_results.html?q=${encodeURIComponent(query)}`;
   }
 }
 
@@ -60,4 +60,5 @@ speakButton.addEventListener('click', () => {
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
         window.speechSynthesis.speak(utterance);
     }
+
 });
