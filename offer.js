@@ -1,4 +1,4 @@
-import { supabase } from './initdb.js';
+import { supabase } from 'initdb.js';
 
 function getIdFromURL() {
   const params = new URLSearchParams(window.location.search);
@@ -60,5 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function showOfferDialog() {
   document.getElementById('offerDialog').style.display = 'flex';
 }
+
 
 
