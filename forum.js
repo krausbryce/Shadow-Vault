@@ -1,4 +1,4 @@
-import { supabase } from 'initdb.js';
+import { supabase } from './initdb.js';
 
 // Escape HTML to prevent XSS
 function escapeHTML(str) {
@@ -168,5 +168,4 @@ document.addEventListener('submit', async function (e) {
 });
 
 // Initial load
-
 displayForumPosts();
