@@ -1,4 +1,4 @@
-import { supabase } from './initdb.js';
+import { supabase } from 'initdb.js';
 
 // Escape HTML to prevent injection
 function escapeHTML(str) {
@@ -106,4 +106,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   await loadCollectionDetails(collectionId);
   await displayCards(collectionId);
+
 });
