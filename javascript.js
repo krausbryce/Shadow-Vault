@@ -25,7 +25,7 @@ function openCollectionDetailPage(collectionId) {
 function redirectToSearch() {
   const query = document.getElementById('searchInput').value.trim();
   if (query) {
-    window.location.href = `search_results.html?q=${encodeURIComponent(query)}`;
+    window.location.href = `../search_results.html?q=${encodeURIComponent(query)}`;
   }
 }
 
@@ -73,4 +73,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
