@@ -1,5 +1,5 @@
 // Import Supabase library and setup connection to database
-import { supabase } from 'initdb.js';
+import { supabase } from '../initdb.js';
 
 // Avoid errors
 function escapeHTML(str) {
@@ -90,3 +90,4 @@ document.getElementById('contactForm').addEventListener('submit', async function
   displayMessages();
 
 });
+
