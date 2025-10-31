@@ -1,5 +1,5 @@
 // Import Supabase library and setup connection to database
-import { supabase } from './initdb.js';
+import { supabase } from './Shadow-Vault/initdb.js';
 
 //Avoid Errors
 function escapeHTML(str) {
@@ -161,5 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
   displayCardsOnPage();
   loadSearchResults();
 })
+
 
 
