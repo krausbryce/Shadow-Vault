@@ -161,7 +161,3 @@ document.addEventListener("DOMContentLoaded", () => {
   displayCardsOnPage();
   loadSearchResults();
 })
-
-
-
-
