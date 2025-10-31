@@ -1,39 +1,33 @@
-// Scroll function
+//Scroll funtion
 function scrollCards(direction) {
-  const wrapper = document.querySelector('.scroll-wrapper');
-  const card = document.querySelector('.card-card');
-  if (!wrapper || !card) return;
-
-  const cardWidth = card.offsetWidth + 20; // card + gap
-  wrapper.scrollBy({
-    left: direction * cardWidth,
-    behavior: 'smooth'
-  });
+    const wrapper = document.querySelector('.scroll-wrapper');
+    const cardWidth = document.querySelector('.card-card').offsetWidth + 20; // card + gap
+    wrapper.scrollBy({
+        left: direction * cardWidth,
+        behavior: 'smooth'
+    });
 }
 
-// Open card detail page
 function openCardDetailPage(cardId) {
-  window.location.href = `card_detail.html?id=${cardId}`;
+    window.location.href = `card_detail.html?id=${cardId}`;
 }
 
-// Open collection detail page
 function openCollectionDetailPage(collectionId) {
-  window.location.href = `collection_detail.html?id=${collectionId}`;
+    window.location.href = `collection_detail.html?id=${collectionId}`;
 }
 
-// Search function
+//Search Funciton
 function redirectToSearch() {
   const query = document.getElementById('searchInput').value.trim();
   if (query) {
-    window.location.href = `../search_results.html?q=${encodeURIComponent(query)}`;
+    window.location.href = `/search_results.html?q=${encodeURIComponent(query)}`;
   }
 }
 
-// Read more toggle
 function readMore() {
-  const dots = document.getElementById("dots");
-  const moreText = document.getElementById("more");
-  const btnText = document.getElementById("readMoreButton");
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("readMoreButton");
 
   if (dots.style.display === "none") {
     dots.style.display = "inline";
@@ -48,30 +42,22 @@ function readMore() {
   }
 }
 
-// Close offer dialog
 function closeDialog() {
   document.getElementById('offerDialog').style.display = 'none';
 }
 
-// Google Translate init
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 
-// Text-to-speech
-document.addEventListener("DOMContentLoaded", () => {
-  const textInput = document.getElementById('textInput');
-  const speakButton = document.getElementById('speakButton');
+const textInput = document.getElementById('textInput');
+const speakButton = document.getElementById('speakButton');
 
-  if (speakButton && textInput) {
-    speakButton.addEventListener('click', () => {
-      const textToSpeak = textInput.value;
-      if (textToSpeak.trim() !== '') {
+speakButton.addEventListener('click', () => {
+    const textToSpeak = textInput.value;
+
+    if (textToSpeak.trim() !== '') {
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
         window.speechSynthesis.speak(utterance);
-      }
-    });
-  }
+    }
 });
-
-
