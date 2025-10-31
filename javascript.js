@@ -16,14 +16,13 @@ function openCollectionDetailPage(collectionId) {
     window.location.href = `collection_detail.html?id=${collectionId}`;
 }
 
-// Search Function
+//Search Funciton
 function redirectToSearch() {
   const query = document.getElementById('searchInput').value.trim();
   if (query) {
-    window.location.href = `search_results.html?q=${encodeURIComponent(query)}`;
+    window.location.href = `/search_results.html?q=${encodeURIComponent(query)}`;
   }
 }
-
 
 function readMore() {
   var dots = document.getElementById("dots");
